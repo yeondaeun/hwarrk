@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'home#index'
   
   get '/home/index'
@@ -6,6 +7,14 @@ Rails.application.routes.draw do
   get '/home/new'
 
   post '/home/create'
+  
+  get '/home/ranking'
+  
+  get 'home/destroy/:post_id' => 'home#destroy'
+  
+  get 'home/edit/:post_id' => 'home#edit'
+  
+  post 'home/update/:post_id' => 'home#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
